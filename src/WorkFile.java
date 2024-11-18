@@ -110,20 +110,52 @@ public class WorkFile {
     }
 
     //перегрузка записи дефолтных целых чисел в дефолтный файл
-    public void writeIntDataDataInputStream() throws IOException {
-        writeIntDataDataInputStream(this.fileName, this.intData);
-    }
+//    public void writeIntDataDataInputStream() throws IOException {
+//        writeIntDataDataInputStream(this.fileName, this.intData);
+//    }
 
     //перегрузка записи целых чисел в дефолтный файл
-    public void writeIntDataDataInputStream(int intData) throws IOException {
-        writeIntDataDataInputStream(this.fileName, intData);
-    }
+//    public void writeIntDataDataInputStream(int intData) throws IOException {
+//        writeIntDataDataInputStream(this.fileName, intData);
+//    }
 
     //метод записи целых чисел (!не пашет!)
-    public void writeIntDataDataInputStream(String fileName, int intData) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new DataOutputStream(new FileOutputStream(fileName)));
-        writer.write(intData);
-        writer.flush();
-        writer.close();
+//    public void writeIntDataDataInputStream(String fileName, int intData) throws IOException {
+//        BufferedWriter writer = new BufferedWriter(new DataOutputStream(new FileOutputStream(fileName)));
+//        writer.write(intData);
+//        writer.flush();
+//        writer.close();
+//    }
+
+    //перегрузка считывания reader
+    public void readDataReader() throws IOException {
+        readDataReader(this.fileName);
+    }
+
+    //метод считывания reader
+    public void readDataReader(String fileName) throws IOException {
+        FileReader fileReader = new FileReader(fileName);
+        int data;
+        while ((data = fileReader.read()) != -1) {
+            System.out.print((char) data);
+        }
+        fileReader.close();
+    }
+
+    //перегрузка считывания reader запись writer дефолтный файл дефолтные данные
+    public void writeDataReaderWriter() throws IOException {
+        writeDataReaderWriter(this.fileName, this.fileInfo);
+    }
+
+    //перегрузка считывания reader запись writer дефолтный файл
+    public void writeDataReaderWriter(String fileInfo) throws IOException {
+        writeDataReaderWriter(this.fileName, fileInfo);
+    }
+
+    //метод считывания reader запись writer
+    public void writeDataReaderWriter(String fileName, String fileInfo) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+        bufferedWriter.write(fileInfo);
+        bufferedWriter.close();
     }
 }
