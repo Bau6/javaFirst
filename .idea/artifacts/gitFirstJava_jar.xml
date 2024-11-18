@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="gitFirstJava:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/gitFirstJava_jar</output-path>
+    <root id="archive" name="gitFirstJava.jar">
+      <element id="module-output" name="gitFirstJava" />
+    </root>
+  </artifact>
+</component>
