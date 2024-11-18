@@ -5,11 +5,13 @@ public class WorkFile {
     private String pictureDefault1 = "";
     private String pictureDefault2 = "";
     private String fileName = "";
-    private File file = null;
     private String fileInfo = "";
+    private int fileInfoByteA = 0;
+    private int intData = 0;
     public WorkFile() {
+        this.fileInfoByteA = 65;
+        this.intData = 12345;
         this.fileName = "text.txt";
-        this.file = new File(fileName);
         this.fileInfo = "Hello FileOutputStream World";
         this.pictureDefault1 = "picture1.jpg";
         this.pictureDefault2 = "picture2.jpg";
@@ -71,5 +73,57 @@ public class WorkFile {
         }
         fis.close();
         fos.close();
+    }
+
+    //перегрузка записи в дефолтный файл побайтово дефолтный текст
+    public void inputFileInfoByte() throws IOException {
+        inputFileInfoByte(this.fileName, this.fileInfoByteA);
+    }
+
+    //перегрузка записи в дефолтный файл побайтово
+    public void inputFileInfoByte(int fileInfoByteA) throws IOException {
+        inputFileInfoByte(this.fileName, fileInfoByteA);
+    }
+
+    //метод записи в файл побайтово (!не пашет!)
+    public void inputFileInfoByte(String fileName, int fileInfoByteA) throws IOException {
+        FileOutputStream outputStream = new FileOutputStream(fileName);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byteArrayOutputStream.write(fileInfoByteA);
+        byteArrayOutputStream.flush();
+        byteArrayOutputStream.close();
+    }
+
+    //перегрузка считывания целых чисел
+    public void readIntDataDataInputStream() throws IOException {
+        readIntDataDataInputStream(this.fileName);
+    }
+
+    //метод считывания целых чисел
+    public void readIntDataDataInputStream(String fileName) throws IOException {
+        DataInputStream inputStream = new DataInputStream(new FileInputStream(fileName));
+        int data;
+        while ((data = inputStream.read()) != -1) {
+            System.out.print((char) data);
+        }
+        inputStream.close();
+    }
+
+    //перегрузка записи дефолтных целых чисел в дефолтный файл
+    public void writeIntDataDataInputStream() throws IOException {
+        writeIntDataDataInputStream(this.fileName, this.intData);
+    }
+
+    //перегрузка записи целых чисел в дефолтный файл
+    public void writeIntDataDataInputStream(int intData) throws IOException {
+        writeIntDataDataInputStream(this.fileName, intData);
+    }
+
+    //метод записи целых чисел (!не пашет!)
+    public void writeIntDataDataInputStream(String fileName, int intData) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new DataOutputStream(new FileOutputStream(fileName)));
+        writer.write(intData);
+        writer.flush();
+        writer.close();
     }
 }

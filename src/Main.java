@@ -53,7 +53,7 @@ public class Main {
 //        wf.inputFileInfo(info3);
 //        wf.inputFileInfo();
 //        wf.getFileInfo();
-        wf.copyFile(sourcePicture);
-        wf.copyFile(sourcePicture, destPicture);
+//        wf.copyFile(sourcePicture);
+//        wf.copyFile(sourcePicture, destPicture);
     }
 }
