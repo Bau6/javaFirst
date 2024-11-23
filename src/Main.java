@@ -57,5 +57,8 @@ public class Main {
 //        wf.copyFile(sourcePicture, destPicture);
 //        wf.writeDataReaderWriter();
 //        wf.readDataReader();
+//        wf.copyFileUsingReaderWriter();
+        wf.copyFileUsingStreamEnc();
+
     }
 }
