@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,5 +18,18 @@ public class InputNumber {
                 System.out.println(i);
             }
         }
+    }
+
+    public String input() throws Exception {
+        String s = null;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+            s = reader.readLine();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        if (s.equals("")) {
+            throw new Exception("String can not be empty!");
+        }
+        return s;
     }
 }
